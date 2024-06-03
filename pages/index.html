@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <div class="div7">
+    <div id="div1">
+      <center>
+        <h1>XYZ-COMPANY</h1>
+        <p>CURRENCY EXCHANGE PLATFORM</p>
+      </center>
+    </div> 
+    <div id="container">
+      <div id="div6">
+        <label>Amount</label><br>
+        <input type="number" id="amount" value="" required>
+      </div>
+      <div id="div2">
+        <label>From</label><br>
+        <select id="fromCurrency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="RWF">RWF</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+      <div id="div3">
+        <label>To</label><br>
+        <select id="toCurrency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="RWF">RWF</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+      <div id="div4">
+        <p>Result: <span id="result"></span></p>
+      </div>
+      <div id="div5">
+        <button style="background-color: blue; border-radius: 5px;" onclick="convertCurrency()">Convert</button>
+      </div>
+    </div> 
+  </div>
+
+  <script>
+    function convertCurrency() {
+        try {
+            const amount = document.getElementById('amount').value;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+
+            // Here, you would typically make an API call to a service that provides currency conversion rates.
+            // For the sake of simplicity, let's assume a simple conversion factor.
+            const conversionRates = {
+                USD: { EUR: 0.85, RWF: 1010, GBP: 0.73 },
+                EUR: { USD: 1.18, RWF: 1180, GBP: 0.86 },
+                RWF: { USD: 0.00099, EUR: 0.00085, GBP: 0.00073 },
+                GBP: { USD: 1.37, EUR: 1.16, RWF: 1370 }
+            };
+
+            if (!(fromCurrency in conversionRates) || !(toCurrency in conversionRates[fromCurrency])) {
+                throw new Error('Invalid currency selection');
+            }
+
+            const result = amount * conversionRates[fromCurrency][toCurrency];
+            document.getElementById('result').innerText = result.toFixed(2) + ' ' + toCurrency;
+        } catch (error) {
+            // Code to handle the exception
+            console.error("An error occurred:", error.message);
+        }
+    }
+</script>
+
+</body>
+</html>

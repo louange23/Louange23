@@ -1,0 +1,38 @@
+#div1{
+    background-color:rgb(0, 0, 102) ;
+    color: white;
+    width: 650px;
+    height: 200px;
+}
+#container{
+    background-color: white;
+    width: 530px;
+    margin-left: 60px;
+    margin-top: -60px;
+
+}
+#div2{
+    margin-left: 225px;
+    margin-top: -37px;
+}
+#div3{
+    margin-left: 375px;
+    margin-top: -37px;
+}
+#div4{
+    margin-left: 375px;
+    margin-top: 15px;
+}
+#div5{
+    margin-left: 25px;
+    margin-top: -10px;
+    height: 50px;
+    border-radius: 300px;
+}
+#div6{
+    margin-left: 25px;
+}
+body{
+    background-color: grey;
+    
+}
